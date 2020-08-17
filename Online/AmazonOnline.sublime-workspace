@@ -1,0 +1,528 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"date",
+				"datetime"
+			],
+			[
+				"board",
+				"boardSprites"
+			],
+			[
+				"ex",
+				"except"
+			],
+			[
+				"name",
+				"new_name"
+			],
+			[
+				"re",
+				"received_data"
+			],
+			[
+				"res",
+				"reshapeData"
+			],
+			[
+				"input",
+				"inputsW"
+			],
+			[
+				"train",
+				"trainData"
+			],
+			[
+				"saving",
+				"savingInputs"
+			],
+			[
+				"allow",
+				"allowedActions"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"print",
+				"printBoard"
+			],
+			[
+				"player",
+				"playerTurn"
+			],
+			[
+				"red",
+				"redTiles"
+			],
+			[
+				"wqu",
+				"wqueenNumber"
+			],
+			[
+				"even",
+				"events"
+			],
+			[
+				"pic",
+				"pickQueen"
+			],
+			[
+				"pick",
+				"pickingQueen"
+			],
+			[
+				"Blac",
+				"BlackAI"
+			],
+			[
+				"possi",
+				"possibleMove"
+			],
+			[
+				"__",
+				"__init__"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "server.py",
+			"settings":
+			{
+				"buffer_size": 2399,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Amazons_GUI.py",
+			"settings":
+			{
+				"buffer_size": 9401,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Amazons.py",
+			"settings":
+			{
+				"buffer_size": 3093,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/rep/Games/Amazon/TODO.txt",
+			"settings":
+			{
+				"buffer_size": 95,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"git ",
+				"Git: Commit"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 460.0,
+		"history":
+		[
+			"import numpy as np",
+			"git pull",
+			"a",
+			"a=1",
+			"help",
+			"git "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/rep/Games/Amazon/Online/tuto/server.py",
+		"/C/rep/test1/test.py",
+		"/C/rep/Games/Amazon/Online/client.py",
+		"/C/repos/Games/Amazon/Online/client.py",
+		"/C/repos/Games/Amazon/Online/network.py",
+		"/C/Users/Ripi/Desktop/rename_movies.py",
+		"/C/repos/Games/Amazon/Online/Amazons.py",
+		"/C/repos/Games/Amazon/Amazons.py",
+		"/C/repos/Games/Amazon/Online/tuto/network.py",
+		"/C/repos/Games/Amazon/Online/tuto/game.py",
+		"/C/repos/Games/Amazon/Online/tuto/client.py",
+		"/C/repos/Games/Amazon/Online/tuto/server.py",
+		"/C/repos/Games/Amazon/ML exemples/TF_mnist_ex.py",
+		"/C/repos/Games/Amazon/Amazons_GUI.py",
+		"/C/repos/Games/TicTacToe/TicTacToe_ML.py",
+		"/C/repos/Games/Amazon/Amazons_ML.py",
+		"/C/repos/Games/.gitignore",
+		"/C/repos/Games/Amazon/train_data/1557067015.npy",
+		"/C/Programs/cmder/config/Readme.md",
+		"/C/Programs/cmder/config/settings",
+		"/C/repos/test1/test1.py",
+		"/C/repos/test1/log.txt",
+		"/C/repos/Games/TicTacToe/TicTacToe_GUI.py",
+		"/C/repos/Games/Amazon/Connect4.py",
+		"/C/repos/test1/.gitignore",
+		"/C/repos/test1/index.html",
+		"/C/repos/test1/test dir/1.js",
+		"/C/repos/test1/app.js",
+		"/C/Users/Ripi/source/repos/MathieuMoalic/S8_Arduino/arduino_file.sln",
+		"/D/address.txt",
+		"/C/Users/Ripi/Google Drive/Papiers/Pologne/Bourse polonaise/copie license.txt",
+		"/F/Library/Downloads/Arduino_M1-master/Arduino_M1-master/map_plot.py",
+		"/F/qBittorent/American.Gods.S02E08.Moon.Shadow.1080p.AMZN.WEBRip.DDP5.1.x264-NTb[rarbg]/RARBG_DO_NOT_MIRROR.exe",
+		"/F/Library/Downloads/Arduino_M1-master/Arduino_M1-master/data/DATALOG6.TXT",
+		"/F/Library/Downloads/Arduino_M1-master/Arduino_M1-master/data/DATALOG7.TXT",
+		"/F/Library/Downloads/Arduino_M1-master/Arduino_M1-master/data/DATALOG3.TXT",
+		"/F/Library/Downloads/Arduino_M1-master/Arduino_M1-master/data/DATALOG1.TXT",
+		"/C/Users/Ripi/source/repos/Games/Amazon/Amazons.py",
+		"/F/Library/Downloads/mapPlot.py",
+		"/F/Library/Downloads/Attestation.pdf",
+		"/F/Library/Downloads/led_mapping.ino",
+		"/F/Library/Downloads/Items.txt",
+		"/C/Users/Ripi/AppData/Roaming/Sublime Text 3/Packages/User/Python.sublime-settings",
+		"/C/Users/Ripi/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"sprites/",
+			"conn",
+			"conn2",
+			"conn1",
+			"init()",
+			"comicsans",
+			"2048",
+			" n.",
+			"connect",
+			"print",
+			"queen",
+			"playing",
+			"humanturn1",
+			", player",
+			"board",
+			"self.board",
+			"tile",
+			"workspace"
+		],
+		"highlight": true,
+		"in_selection": true,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"path + '",
+			"player",
+			"p2",
+			"p1",
+			"calibri",
+			"redTile",
+			"run",
+			" ",
+			"self.board",
+			"board"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "server.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2399,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2158,
+								2158
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 683.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "Amazons_GUI.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6607,
+								6607
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3968.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Amazons.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3093,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2381,
+								2381
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1681.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/rep/Games/Amazon/TODO.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 95,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								95,
+								95
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 41.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.4609375,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.exec":
+	{
+		"height": 300.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 133.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 50.0,
+	"status_bar_visible": false,
+	"template_settings":
+	{
+	}
+}

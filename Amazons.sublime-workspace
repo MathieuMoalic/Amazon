@@ -1,0 +1,222 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"even",
+				"events"
+			],
+			[
+				"pic",
+				"pickQueen"
+			],
+			[
+				"pick",
+				"pickingQueen"
+			],
+			[
+				"Blac",
+				"BlackAI"
+			],
+			[
+				"possi",
+				"possibleMove"
+			],
+			[
+				"__",
+				"__init__"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"git",
+				"Git: Init"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 460.0,
+		"history":
+		[
+			"a",
+			"a=1",
+			"help",
+			"git "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/repos/Games/Amazon/Amazons.py",
+		"/C/repos/Games/.gitignore",
+		"/C/repos/test1/.gitignore",
+		"/C/repos/test1/index.html",
+		"/C/repos/test1/test dir/1.js",
+		"/C/repos/test1/app.js",
+		"/C/Users/Ripi/source/repos/MathieuMoalic/S8_Arduino/arduino_file.sln",
+		"/D/address.txt",
+		"/C/Users/Ripi/Google Drive/Papiers/Pologne/Bourse polonaise/copie license.txt",
+		"/F/Library/Downloads/Arduino_M1-master/Arduino_M1-master/map_plot.py",
+		"/F/qBittorent/American.Gods.S02E08.Moon.Shadow.1080p.AMZN.WEBRip.DDP5.1.x264-NTb[rarbg]/RARBG_DO_NOT_MIRROR.exe",
+		"/F/Library/Downloads/Arduino_M1-master/Arduino_M1-master/data/DATALOG6.TXT",
+		"/F/Library/Downloads/Arduino_M1-master/Arduino_M1-master/data/DATALOG7.TXT",
+		"/F/Library/Downloads/Arduino_M1-master/Arduino_M1-master/data/DATALOG3.TXT",
+		"/F/Library/Downloads/Arduino_M1-master/Arduino_M1-master/data/DATALOG1.TXT",
+		"/C/Users/Ripi/source/repos/Games/Amazon/Amazons.py",
+		"/F/Library/Downloads/mapPlot.py",
+		"/F/Library/Downloads/Attestation.pdf",
+		"/F/Library/Downloads/led_mapping.ino",
+		"/F/Library/Downloads/Items.txt",
+		"/C/Users/Ripi/AppData/Roaming/Sublime Text 3/Packages/User/Python.sublime-settings",
+		"/C/Users/Ripi/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Amazons.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 260.0,
+	"status_bar_visible": false,
+	"template_settings":
+	{
+	}
+}
