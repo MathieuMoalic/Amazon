@@ -6,8 +6,6 @@ step_moves = ((-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1))
 horizontal = ("10","9","8","7","6","5","4","3","2","1")
 vertical = ("a","b","c","d","e","f","g","h","i","j")
 
-cwd = "C:/Users/Mat/Documents/GitHub/Amazon/Amazons2/sprites/"
-
 class Tile:
     def __init__(self,board,i,j):
         self.coor = (i,j)
@@ -35,10 +33,14 @@ class Tile:
         self.update_sprite()
 
     def on_click(self,event):
-        game.check_click(self.piece, self.coor)
+        game.check_click(self)
+
+    def change_piece(self,new_piece):
+        self.piece = new_piece
+        self.update_sprite()
 
     def update_sprite(self):
-        self.path = f"{cwd}{self.tile_color}_{self.piece}.png"
+        self.path = f"sprites/{self.tile_color}_{self.piece}.png"
         self.image = ImageTk.PhotoImage(Image.open(self.path))
         self.cell.config(image = self.image)
 
@@ -62,66 +64,76 @@ class Board:
 
         self.state = 0
         self.player = "white"
+        self.check_player_moves()
 
-    def check_click(self, piece, coor):
+    def check_click(self, tile):
         #pick white amazon
-        if self.state == 0 and piece == "white_amazon":
-            no_move = self.possible_moves(coor)
-            if no_move:
-                return
-            self.selected_amazon_coor = coor
+        if self.state == 0 and tile.piece == "white_amazon":
+            self.show_possible_moves(tile)
+            self.selected_amazon = tile
+
             self.state += 1
             return
 
         #pick move tile
-        if self.state == 1 and piece == "selection":
-            self.clear_possible_moves()
-            self.move_amazon(self.selected_amazon_coor,coor)
-            self.possible_moves(coor)
+        if self.state == 1 and tile.piece == "possible":
+            self.move_amazon(self.selected_amazon,tile)
+            self.check_moves(tile)
+            self.show_possible_moves(tile)
+
             self.state += 1
             return
 
         #pick arrow tile
-        if self.state == 2 and piece == "selection":
-            self.clear_possible_moves()
-            self.shoot_arrow(coor)
+        if self.state == 2 and tile.piece == "possible":
+            self.shoot_arrow(tile)
+
             self.state += 1
+            self.player = "black"
+            self.check_player_moves()
             return
 
         #pick black amazon
-        if self.state == 3 and piece == "black_amazon":
-            no_move = self.possible_moves(coor)
-            if no_move:
-                return
-            self.selected_amazon_coor = coor
+        if self.state == 3 and tile.piece == "black_amazon":
+            self.show_possible_moves(tile)
+            self.selected_amazon = tile
+
             self.state += 1
             return
 
         #pick move tile
-        if self.state == 4 and piece == "selection":
-            self.clear_possible_moves()
-            self.move_amazon(self.selected_amazon_coor,coor)
-            self.possible_moves(coor)
+        if self.state == 4 and tile.piece == "possible":
+            self.move_amazon(self.selected_amazon,tile)
+            self.check_moves(tile)
+            self.show_possible_moves(tile)
+
             self.state += 1
             return
 
         #pick arrow tile
-        if self.state == 5 and piece == "selection":
-            self.clear_possible_moves()
-            self.shoot_arrow(coor)
+        if self.state == 5 and tile.piece == "possible":
+            self.shoot_arrow(tile)
+
             self.state = 0
+            self.player = "white"
+            self.check_player_moves()
             return
 
     def check_player_moves(self):
-        player_moves = []
+        player_moves = [self.player]
         for row in self.tiles:
             for tile in row:
                 if tile.piece == self.player+"_amazon":
-                    player_moves.append(self.check_amazon_moves(tile))
+                    moved = self.check_moves(tile)
+                    player_moves.append(moved)
+                    # print(f"{tile.pos=} {tile.piece} {moved=}")
+        # print(player_moves)
+        if True not in player_moves:
+            print(f"{self.player} loses")
 
-    def check_amazon_moves(self,coor):
-        i,j = coor
-        no_move = True
+    def check_moves(self,tile):
+        i,j = tile.coor
+        moved = False
         for step_move in step_moves:
             for m in range(1,10):
                 x = i + step_move[0]*m
@@ -129,33 +141,40 @@ class Board:
                 if x < 0 or x > 9 or y < 0 or y > 9:
                     break
                 if self.tiles[y][x].piece == "empty":
-                    self.tiles[y][x].piece = "selection"
-                    self.tiles[y][x].update_sprite()
-                    no_move = False
+                    tile.possible_moves.append((x,y))
+                    moved = True
                 else:
                     break
-        return no_move
+        # print(f"returning {moved=}")
+        return moved
+
+    def show_possible_moves(self,tile):
+        for coor in tile.possible_moves:
+            j,i = coor
+            # if self.tiles[i][j].piece != "possible":
+                # print(f"{self.state=} {self.tiles[i][j].piece=} {j=} {i=} {tile.pos=}")
+            self.tiles[i][j].change_piece("possible")
+            # tile.possible_moves = []
 
     def clear_possible_moves(self):
         for row in self.tiles:
             for tile in row:
-                if tile.piece == "selection":
-                    tile.piece = "empty"
-                    tile.update_sprite()
+                tile.possible_moves = []
+                if tile.piece == "possible":
+                    # print(f'cleared {tile.piece} in {tile.pos}')
+                    tile.change_piece("empty")
 
-    def move_amazon(self,selected_amazon_coor,coor):
-        i,j = selected_amazon_coor
-        temp = self.tiles[j][i].piece
-        self.tiles[j][i].piece = "empty"
-        self.tiles[j][i].update_sprite()
-        i,j = coor
-        self.tiles[j][i].piece = temp
-        self.tiles[j][i].update_sprite()
+    def move_amazon(self,previous_tile,new_tile):
+        self.clear_possible_moves()
+        temp = previous_tile.piece
+        previous_tile.change_piece("empty")
+        new_tile.change_piece(temp)
+        # print("moved amazon")
 
-    def shoot_arrow(self,coor):
-        i,j = coor
-        self.tiles[j][i].piece = "arrow"
-        self.tiles[j][i].update_sprite()
+    def shoot_arrow(self,tile):
+        self.clear_possible_moves()
+        tile.change_piece("arrow")
+        # print("shot arrow")
 
     def reset_board(self):
         pass
