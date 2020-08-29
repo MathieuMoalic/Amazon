@@ -1,1 +1,6 @@
 test.py
+__pycache__/amazon.cpython-38.pyc
+__pycache__/backend.cpython-38.pyc
+__pycache__/game.cpython-38.pyc
+__pycache__/menu.cpython-38.pyc
+*.pdf

@@ -1,13 +1,17 @@
 from PIL import ImageTk, Image
 import tkinter as tk
 
-starting_positions = ((0,3),(0,6),(3,0),(3,9),(6,0),(6,9),(9,3),(9,6))
+starting_positions = {"10":((0,3),(0,6),(3,0),(3,9),(6,0),(6,9),(9,3),(9,6)), "8":((0,2),(7,7)), "6":((0,2),(5,5))}
 step_moves = ((-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1))
 horizontal = ("10","9","8","7","6","5","4","3","2","1")
 vertical = ("a","b","c","d","e","f","g","h","i","j")
 
-class Tile:
-    def __init__(self,board,i,j):
+class Tile(tk.Frame):
+    def __init__(self, board, parent, controller, i, j, board_size):
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        # print(controller,parent)
+        self.board = board
         self.coor = (i,j)
         self.pos = vertical[j]+horizontal[i]
 
@@ -16,8 +20,8 @@ class Tile:
         else:
             self.tile_color = "light"
 
-        if self.coor in starting_positions:
-            if i > 5:
+        if self.coor in starting_positions[str(board_size)]:
+            if i > board_size//2:
                 self.piece = "white_amazon"
             else:
                 self.piece = "black_amazon"
@@ -33,7 +37,7 @@ class Tile:
         self.update_sprite()
 
     def on_click(self,event):
-        game.check_click(self)
+        self.board.check_click(self)
 
     def change_piece(self,new_piece):
         self.piece = new_piece
@@ -44,23 +48,32 @@ class Tile:
         self.image = ImageTk.PhotoImage(Image.open(self.path))
         self.cell.config(image = self.image)
 
-class Board:
-    def __init__(self,root,board_size):
-        
-        board = tk.Frame(root, bg="#a6bdbb", bd=15)
-        board.grid()
+class Board(tk.Frame):
+    def __init__(self, parent, controller, board_size, ai):
+        b = tk.Frame.__init__(self, parent, bg="#a6bdbb")
+        self.parent = parent
+        self.controller = controller
+        self.board_size = board_size
+        self.ai = ai
+        for i in range(board_size+5):
+            for j in range(board_size+2):
+                self.grid_columnconfigure(i, minsize=45, weight=1)
+                self.grid_rowconfigure(j, minsize=45, weight=1)
 
-        for i,letter in enumerate(vertical):
-            a = tk.Label(board, bd=0, bg="#a6bdbb", text=letter, font=("Helvetica", 12), width=3, height=2)
+        for i,letter in enumerate(vertical[:board_size]):
+            a = tk.Label(self, bd=0, bg="#a6bdbb", text=letter, font=("Helvetica", 12))
             a.grid(row=0, column=i+1)
-        for j,number in enumerate(horizontal):
-            a = tk.Label(board, bd=-2, bg="#a6bdbb", text=number, font=("Helvetica", 12), width=3, height=2)
+        for j,number in enumerate(horizontal[10-board_size:]):
+            a = tk.Label(self, bd=-2, bg="#a6bdbb", text=number, font=("Helvetica", 12))
             a.grid(row=j+1, column=0)
 
-        restart_button = tk.Button(board, text="restart", command=self.reset_board)
-        restart_button.grid(row=board_size+2, column=1)
+        self.restart_button = tk.Button(self, text="Restart", font=("Helvetica", 12), command=self.reset_board)
+        self.restart_button.grid(row=2, column=board_size+2, columnspan=2)
 
-        self.tiles = [[Tile(board,i,j) for i in range(board_size)] for j in range(board_size)]
+        self.menu_button = tk.Button(self, text="Menu", font=("Helvetica", 12), command=controller.display_menu )
+        self.menu_button.grid(row=4, column=board_size+2, columnspan=2)
+
+        self.tiles = [[Tile(self, parent, controller,i,j,board_size) for i in range(board_size)] for j in range(board_size)]
 
         self.state = 0
         self.player = "white"
@@ -138,7 +151,7 @@ class Board:
             for m in range(1,10):
                 x = i + step_move[0]*m
                 y = j + step_move[1]*m
-                if x < 0 or x > 9 or y < 0 or y > 9:
+                if x < 0 or x > self.board_size-1 or y < 0 or y > self.board_size-1:
                     break
                 if self.tiles[y][x].piece == "empty":
                     tile.possible_moves.append((x,y))
@@ -177,9 +190,10 @@ class Board:
         # print("shot arrow")
 
     def reset_board(self):
-        pass
+        self.controller.reset_game()
 
-root = tk.Tk()
-board_size=10
-game = Board(root,board_size)
-root.mainloop()
+
+if __name__ == "__main__":
+    from amazon import Amazon
+    a = Amazon()
+    a.mainloop()
