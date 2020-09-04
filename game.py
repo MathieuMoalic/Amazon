@@ -1,5 +1,6 @@
 from PIL import ImageTk, Image
 import tkinter as tk
+import random
 
 starting_positions = {"10":((0,3),(0,6),(3,0),(3,9),(6,0),(6,9),(9,3),(9,6)), "8":((0,2),(7,7)), "6":((0,2),(5,5))}
 step_moves = ((-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1))
@@ -35,6 +36,12 @@ class Tile(tk.Frame):
         self.cell.bind("<Button-1>", self.on_click)
 
         self.update_sprite()
+
+    def __str__(self):
+        return f"Tile({self.piece} {self.pos}"
+
+    def __repr__(self):
+        return f"Tile({self.piece} {self.pos}"
 
     def on_click(self,event):
         self.board.check_click(self)
@@ -84,15 +91,17 @@ class Board(tk.Frame):
         if self.state == 0 and tile.piece == "white_amazon":
             self.show_possible_moves(tile)
             self.selected_amazon = tile
-
+            print(self.list_amazons)
             self.state += 1
             return
 
         #pick move tile
         if self.state == 1 and tile.piece == "possible":
             self.move_amazon(self.selected_amazon,tile)
+            self.list_amazons = []
             self.check_moves(tile)
             self.show_possible_moves(tile)
+            print(self.list_amazons)
 
             self.state += 1
             return
@@ -104,47 +113,60 @@ class Board(tk.Frame):
             self.state += 1
             self.player = "black"
             self.check_player_moves()
+            print(self.list_amazons)
             return
 
-        #pick black amazon
-        if self.state == 3 and tile.piece == "black_amazon":
-            self.show_possible_moves(tile)
-            self.selected_amazon = tile
-
-            self.state += 1
-            return
-
-        #pick move tile
-        if self.state == 4 and tile.piece == "possible":
-            self.move_amazon(self.selected_amazon,tile)
-            self.check_moves(tile)
-            self.show_possible_moves(tile)
-
-            self.state += 1
-            return
-
-        #pick arrow tile
-        if self.state == 5 and tile.piece == "possible":
+        if self.ai:
+            self.selected_amazon = random.choice(self.list_amazons)
+            random_tile = random.choice(self.selected_amazon.possible_moves)
+            self.move_amazon(self.selected_amazon,random_tile)
+            self.selected_amazon = self.tiles[random_tile[0]][random_tile[1]]
+            self.check_moves(self.selected_amazon)
+            random_tile = random.choice(self.selected_amazon.possible_moves)
             self.shoot_arrow(tile)
 
             self.state = 0
-            self.player = "white"
-            self.check_player_moves()
-            return
+        else:
+            #pick black amazon
+            if self.state == 3 and tile.piece == "black_amazon":
+                self.show_possible_moves(tile)
+                self.selected_amazon = tile
+
+                self.state += 1
+                return
+
+            #pick move tile
+            if self.state == 4 and tile.piece == "possible":
+                self.move_amazon(self.selected_amazon,tile)
+                self.check_moves(tile)
+                self.show_possible_moves(tile)
+
+                self.state += 1
+                return
+
+            #pick arrow tile
+            if self.state == 5 and tile.piece == "possible":
+                self.shoot_arrow(tile)
+
+                self.state = 0
+                self.player = "white"
+                self.check_player_moves()
+                return
 
     def check_player_moves(self):
         player_moves = [self.player]
+        self.list_amazons = []
         for row in self.tiles:
             for tile in row:
                 if tile.piece == self.player+"_amazon":
                     moved = self.check_moves(tile)
                     player_moves.append(moved)
-                    # print(f"{tile.pos=} {tile.piece} {moved=}")
         # print(player_moves)
         if True not in player_moves:
             print(f"{self.player} loses")
 
     def check_moves(self,tile):
+        self.list_amazons.append(tile)
         i,j = tile.coor
         moved = False
         for step_move in step_moves:
@@ -154,27 +176,20 @@ class Board(tk.Frame):
                 if x < 0 or x > self.board_size-1 or y < 0 or y > self.board_size-1:
                     break
                 if self.tiles[y][x].piece == "empty":
-                    tile.possible_moves.append((x,y))
+                    tile.possible_moves.append(self.tiles[y][x])
                     moved = True
                 else:
                     break
-        # print(f"returning {moved=}")
         return moved
 
-    def show_possible_moves(self,tile):
-        for coor in tile.possible_moves:
-            j,i = coor
-            # if self.tiles[i][j].piece != "possible":
-                # print(f"{self.state=} {self.tiles[i][j].piece=} {j=} {i=} {tile.pos=}")
-            self.tiles[i][j].change_piece("possible")
-            # tile.possible_moves = []
+    def show_possible_moves(self,amazon):
+        for tile in amazon.possible_moves:
+            tile.change_piece("possible")
 
     def clear_possible_moves(self):
-        for row in self.tiles:
-            for tile in row:
-                tile.possible_moves = []
-                if tile.piece == "possible":
-                    # print(f'cleared {tile.piece} in {tile.pos}')
+        for amazon in self.list_amazons:
+            for tile in amazon.possible_moves:
+                if tile.piece = "possible"
                     tile.change_piece("empty")
 
     def move_amazon(self,previous_tile,new_tile):
@@ -182,12 +197,10 @@ class Board(tk.Frame):
         temp = previous_tile.piece
         previous_tile.change_piece("empty")
         new_tile.change_piece(temp)
-        # print("moved amazon")
 
     def shoot_arrow(self,tile):
         self.clear_possible_moves()
         tile.change_piece("arrow")
-        # print("shot arrow")
 
     def reset_board(self):
         self.controller.reset_game()

@@ -36,6 +36,7 @@ class Menu(tk.Frame):
         self.ai = tk.Radiobutton(self, text="AI", 
                                     variable=controller.ai, value=True, 
                                     indicatoron=False, width=8)
+        self.ai.pack()
 
 if __name__ == "__main__":
     from amazon import Amazon

@@ -4,3 +4,6 @@ __pycache__/backend.cpython-38.pyc
 __pycache__/game.cpython-38.pyc
 __pycache__/menu.cpython-38.pyc
 *.pdf
+old/LICENSE
+old/README.md
+old
