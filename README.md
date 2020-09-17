@@ -1,2 +1,2 @@
 # Amazon
- Board Game called Amazon
+ Board Game called Amazon using tkinter.
